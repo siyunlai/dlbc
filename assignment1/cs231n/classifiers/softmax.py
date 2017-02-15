@@ -88,7 +88,6 @@ def softmax_loss_vectorized(W, X, y, reg):
 
   f = X.dot(W)
   f -= np.max(f, axis=1)[:, np.newaxis]
-    
   f_exp = np.exp(f)
 
   p = f_exp/np.sum(f_exp, axis=1)[:, np.newaxis]
