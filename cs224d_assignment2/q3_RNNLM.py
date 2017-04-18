@@ -375,8 +375,8 @@ def generate_text(session, model, config, starting_text='<eos>',
             model.initial_state: state,
             model.dropout_placeholder: 1
         }
-        loss, y_pred, _ = session.run(
-            [model.calculate_loss, model.final_state, tf.no_op()], feed_dict=feed)
+        y_pred = session.run(
+            [model.final_state], feed_dict=feed)
 
         # END YOUR CODE
         next_word_idx = sample(y_pred[0], temperature=temp)
